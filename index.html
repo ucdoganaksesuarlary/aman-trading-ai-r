@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aman Trading</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;padding:18px;
+ background:#0b1421;color:white;
+ font-family:Arial,sans-serif;
+}
+.container{max-width:450px;margin:auto}
+.header{text-align:center;padding:20px}
+.logo{color:#e4bd68;font-size:32px;font-weight:bold}
+.card{
+ background:#17283b;
+ border:1px solid #30445b;
+ border-radius:16px;
+ padding:18px;margin:15px 0;
+}
+label{display:block;color:#aabbcc;margin:12px 0 7px}
+select,button{
+ width:100%;padding:14px;
+ border-radius:10px;font-size:16px;
+}
+select{
+ background:#0b1421;color:white;
+ border:1px solid #40536a;
+}
+button{
+ background:#dfbd70;color:#101b28;
+ border:0;font-weight:bold;margin-top:18px;
+}
+.result{text-align:center;padding:25px}
+.signal{font-size:32px;font-weight:bold}
+.green{color:#27d69a}
+.red{color:#ef626c}
+.gold{color:#e4bd68}
+.small{color:#9aadc1;font-size:12px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+ <div class="logo">AT</div>
+ <h2>AMAN TRADING</h2>
+ <div class="small">AKYLLY BAZAR ANALIZI</div>
+</div>
+
+<div class="card">
+ <label>Bazary saýla</label>
+ <select id="pair">
+  <option>EUR/USD</option>
+  <option>GBP/USD</option>
+  <option>USD/JPY</option>
+  <option>AUD/USD</option>
+  <option>EUR/JPY</option>
+ </select>
+
+ <label>Bazar görnüşi</label>
+ <select id="market">
+  <option>Adaty bazar</option>
+  <option>OTC</option>
+ </select>
+
+ <label>Grafik wagty</label>
+ <select id="time">
+  <option>1 minut</option>
+  <option>5 minut</option>
+  <option>15 minut</option>
+  <option>1 sagat</option>
+ </select>
+
+ <label>Giriş wagty</label>
+ <select id="expiry">
+  <option>1 minut</option>
+  <option>5 minut</option>
+  <option>15 minut</option>
+ </select>
+
+ <button onclick="analyze()">ANALIZ ET</button>
+</div>
+
+<div class="card result">
+ <div class="small">ANALIZ NETIJESI</div>
+ <div id="signal" class="signal gold">—</div>
+ <h2 id="direction">GARAŞÝAR</h2>
+ <div id="confidence" class="small">
+  Hakyky maglumat garaşylýar
+ </div>
+ <p id="message" class="small">
+  Ilki bazar maglumat çeşmesini birikdirmeli.
+ </p>
+</div>
+
+<div class="card">
+ <h3>Signal taryhy</h3>
+ <div id="history" class="small">
+  Entek signal ýok
+ </div>
+</div>
+
+<p class="small" style="text-align:center">
+ AMAN TRADING © 2026
+</p>
+
+</div>
+
+<script>
+function analyze(){
+ const market=document.getElementById("market").value;
+ document.getElementById("signal").textContent="—";
+ document.getElementById("signal").className="signal gold";
+ document.getElementById("direction").textContent="ANALIZ TAÝÝAR DÄL";
+ document.getElementById("confidence").textContent=
+ "Hakyky baha maglumat çeşmesi birikdirilmedi.";
+ document.getElementById("message").textContent=
+ market==="OTC"
+ ? "OTC bazary üçin brokeriň hakyky baha maglumatlary gerek."
+ : "Adaty bazar üçin real wagt maglumat çeşmesi gerek.";
+}
+</script>
+</body>
+</html>
